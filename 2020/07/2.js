@@ -9,7 +9,7 @@ for (let line of input) {
     continue;
   }
 
-  targets.forEach(t => {
+  targets.forEach((t) => {
     let [count, ...name] = t.split(' ');
     name = name.join(' ');
     map[source] = { ...(map[source] || {}), [name]: +count };
@@ -20,7 +20,9 @@ let containers = 0;
 while (bags.length) {
   const [b, c] = bags.pop();
   containers++;
-  if (!map[b]) { continue; }
+  if (!map[b]) {
+    continue;
+  }
   Object.entries(map[b]).reduce((a, [k, v]) => {
     for (let i = 0; i < v; ++i) {
       bags.push([k, 1]);

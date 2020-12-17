@@ -11,7 +11,7 @@ for (let line of input) {
     continue;
   }
 
-  targets.forEach(t => {
+  targets.forEach((t) => {
     let [count, ...name] = t.split(' ');
     name = name.join(' ');
     map[name] = { ...(map[name] || {}), [source]: +count };
@@ -21,8 +21,10 @@ let bags = ['shiny gold'];
 let containers = {};
 while (bags.length) {
   const b = bags.pop();
-  if (!map[b]) { continue; }
-  Object.keys(map[b]).forEach(k => {
+  if (!map[b]) {
+    continue;
+  }
+  Object.keys(map[b]).forEach((k) => {
     bags.push(k);
     containers[k] = true;
   });

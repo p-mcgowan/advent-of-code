@@ -10,7 +10,7 @@ const v = input.reduce((sum, set) => {
     }
     return Object.assign(a, { [v]: (a[v] || 0) + 1 });
   }, {});
-  const all = Object.values(uniq).filter(v => v == n).length;
+  const all = Object.values(uniq).filter((v) => v == n).length;
   console.log(set, all);
   return sum + all;
 }, 0);

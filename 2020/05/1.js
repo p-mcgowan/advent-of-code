@@ -14,8 +14,10 @@ const ops = {
   R: ([r, c]) => [r, c.slice(c.length / 2, c.length)],
 };
 const max = input.reduce((max, line) => {
-  if (!line) { return max; }
-  const val = [...line].reduce((a, l) => ops[l](a), [[...rows], [...columns]])
+  if (!line) {
+    return max;
+  }
+  const val = [...line].reduce((a, l) => ops[l](a), [[...rows], [...columns]]);
   const hash = val[0][0] * 8 + val[1][0];
   console.log(val, hash);
   return Math.max(max, hash);

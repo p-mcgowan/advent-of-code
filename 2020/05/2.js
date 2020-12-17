@@ -13,15 +13,19 @@ const ops = {
   L: ([r, c]) => [r, c.slice(0, c.length / 2)],
   R: ([r, c]) => [r, c.slice(c.length / 2, c.length)],
 };
-const seats = input.map(line => {
-  if (!line) { return; }
-  const val = [...line].reduce((a, l) => ops[l](a), [[...rows], [...columns]])
-  const [[a],[b]] = val;
-  const hash = a * 8 + b;
-  return hash;
-}).sort((a, b) => a - b);
+const seats = input
+  .map((line) => {
+    if (!line) {
+      return;
+    }
+    const val = [...line].reduce((a, l) => ops[l](a), [[...rows], [...columns]]);
+    const [[a], [b]] = val;
+    const hash = a * 8 + b;
+    return hash;
+  })
+  .sort((a, b) => a - b);
 for (let i = seats[0]; i < seats.length - 1; i++) {
-  if (seats[i+1] != seats[i] + 1) {
+  if (seats[i + 1] != seats[i] + 1) {
     console.log(seats[i] + 1);
   }
 }
